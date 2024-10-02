@@ -1,30 +1,13 @@
-// function getData() {
-//     return fetch('https://api.example.com/data')
-//       .then(response => response.json())
-//       .then(data => {
-//         return fetch(`https://api.example.com/details/${data.id}`)
-//           .then(detailsResponse => detailsResponse.json())
-//           .then(details => {
-//             console.log(details);
-//           });
-//       })
-//       .catch(error => {
-//         console.error('Error:', error);
-//       });
-//   }
-
-async function getData() {
-  try {
-    const response = await fetch("https://api.example.com/data");
-    const data = await response.json();
-
-    const detailsResponse = await fetch(
-      `https://api.example.com/details/${data.id}`
-    );
-    const details = await detailsResponse.json();
-
-    console.log(details);
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
+function delay(seconds){
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, seconds * 1000);
+    });
 }
+
+async function delayAction() {
+    console.log('Очікування...');
+    await delay(3);
+    console.log('3 секунди минули!');
+}
+
+delayAction();

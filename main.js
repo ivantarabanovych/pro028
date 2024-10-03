@@ -1,15 +1,2 @@
-async function requestData() {
-    try{
-        const responce1 = await fetch('https://api.example.com/data1');
-        const data1 = await responce1.json();
-        console.log('Дані з першого запиту', data1);
-        
-        const responce2 = await fetch('https://api.example.com/data2/${data1.id}');
-        const data2 = await responce2.json();
-        console.log('Дані з другого запиту', data2);
-    } catch (error){
-        console.error('Помилка під час виконання запитів', error);
-    }
-}
-
-requestData();
+"Callback hell" — це ситуація, коли вкладені функції зворотного виклику (callback functions) створюють складні, важко читабельні та незрозумілі структури коду, особливо у випадках, коли потрібно виконати кілька асинхронних операцій послідовно. Це може спричинити численні проблеми в розробці.
+async/await є потужним інструментом для уникнення "callback hell", оскільки вони дозволяють писати код у лінійному, синхронному стилі, зберігаючи асинхронну природу процесів. Це значно покращує читабельність коду, спрощує обробку помилок і зменшує кількість вкладеностей, що робить підтримку таких програм набагато простішою.

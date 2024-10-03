@@ -1,20 +1,14 @@
-async function loadImage() {
-    try{
-        const responce = await fetch('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?')
-        if (!responce.ok) {
-            throw new Error('Помилка сервера')
-        }
-        const img = document.createElement('img');
-        img.src = responce.url;
-        img.alt = 'Some image'
-        img.width = 600;
+Конструкція try...catch містить два головних блоки: try, а потім catch:
 
-        const image = document.getElementById('image');
-        image.innerHTML = '';
-        image.appendChild(img);
-    } catch (error){
-        console.error('Error loading image', error);
-    }
+try {
+
+  // код...
+
+} catch (err) {
+
+  // код обробки помилки
+
 }
-
-document.getElementById('load-image').addEventListener('click', loadImage);
+В першу чергу виконується код в блоці try {...}.
+Якщо не виникає помилок, то блок catch (err) ігнорується: виконання досягає кінця блоку try та продовжується поза блоком catch.
+Якщо виникає помилка, тоді виконання в try припиняється і виконання коду продовжується з початку блоку catch (err). Змінна err (можна обрати будь-яке ім’я) буде містити об’єкт помилки з додатковою інформацією.
